@@ -1,0 +1,27 @@
+/* .App {
+  text-align: center;
+} */
+
+.nav-wrapper{
+  text-align: left;
+  margin-left: 15px;
+}
+.list-image{
+  max-width: 300px;
+}
+a{
+  color: black;
+}
+
+.mb-3{
+  max-width: 300px;
+  align-items: center;
+  left: 50%;
+  
+}
+
+.card-img-top{
+  max-width: 300px;
+}
+
+
