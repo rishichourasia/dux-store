@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { selectProduct } from "../actions/actions";
-import { useParams } from "react-router-dom";
+import { addtoCart, selectProduct } from "../actions/actions";
+import { Link, useParams } from "react-router-dom";
 import { removeProduct } from "../actions/actions";
 // import { Button } from "bootstrap";
 
 export const ProductDetails = () => {
 	const productDetail = useSelector((state) => state.productDetail);
+	// const addToCart = useSelector((state) => state.addToCart);
 	const dispatch = useDispatch();
 	const { productId } = useParams();
 
@@ -30,7 +31,15 @@ export const ProductDetails = () => {
 		};
 	}, [productId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-	console.log(productDetail);
+	// console.log(productDetail);
+
+	const addingCart = () => {
+		axios.get(`https://fakestoreapi.com/products/${productId}`).then((res) => {
+			const data = res.data;
+			dispatch(addtoCart(data));
+			console.log("added to cart");
+		});
+	};
 
 	return (
 		<div className="card mb-3">
@@ -42,8 +51,12 @@ export const ProductDetails = () => {
 					<h3 className="text-muted">{productDetail.price}</h3>
 				</p>
 			</div>
-			<button className="btn btn-primary">Add To Cart</button>
-			<button className="btn btn-primary">View Cart</button>
+			<button onClick={addingCart} className="btn btn-primary">
+				Add To Cart
+			</button>
+			<Link to="/cart">
+				<button className="btn btn-primary">View Cart</button>
+			</Link>
 		</div>
 	);
 };

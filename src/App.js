@@ -3,6 +3,7 @@ import Navbar from "./components/Page Component/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ProductList } from "./components/Page Component/ProductList";
 import { ProductDetails } from "./components/Page Component/ProductDetails";
+import { Cart } from "./components/Page Component/Cart";
 
 function App() {
 	return (
@@ -12,6 +13,7 @@ function App() {
 				<Switch>
 					<Route path="/" exact component={ProductList} />
 					<Route path="/product/:productId" exact component={ProductDetails} />
+					<Route path="/cart" exact component={Cart} />
 					<Route>404 Route Not found </Route>
 				</Switch>
 			</Router>

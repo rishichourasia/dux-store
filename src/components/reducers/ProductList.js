@@ -13,3 +13,10 @@ export const ProductDetail = (state = [], action) => {
 	}
 	return state;
 };
+
+export const CartPage = (state = [], action) => {
+	if (action.type === "ADD_TO_CART") {
+		return [...state, action.payload];
+	}
+	return state;
+};

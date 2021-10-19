@@ -17,4 +17,11 @@ const removeProduct = () => {
 	};
 };
 
-export { fetchProducts, selectProduct, removeProduct };
+const addtoCart = (product) => {
+	return {
+		type: "ADD_TO_CART",
+		payload: product,
+	};
+};
+
+export { fetchProducts, selectProduct, removeProduct, addtoCart };
