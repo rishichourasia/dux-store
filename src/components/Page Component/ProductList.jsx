@@ -38,7 +38,7 @@ export const ProductList = () => {
 											alt="iamage"
 										/>
 										<span className="btn-floating halfway-fab waves-effect waves-light red">
-											<i className="material-icons">add</i>
+											<i className="material-icons">View</i>
 										</span>
 									</div>
 									<div className="card-content">
