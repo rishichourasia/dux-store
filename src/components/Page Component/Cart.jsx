@@ -11,7 +11,7 @@ export const Cart = () => {
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	const remove = (id) => {
-		// dispatch(removeFromCart(id));
+		dispatch(removeFromCart(id));
 	};
 
 	return (
