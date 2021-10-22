@@ -2,26 +2,27 @@
   text-align: center;
 } */
 
-.nav-wrapper{
-  text-align: left;
-  margin-left: 15px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-wrapper {
+	text-align: left;
+	margin-left: 15px;
 }
-.list-image{
-  max-width: 300px;
+.list-image {
+	max-width: 300px;
 }
-a{
-  color: black;
+a {
+	color: black;
 }
 
-.mb-3{
-  max-width: 300px;
-  align-items: center;
-  left: 50%;
-  
+.mb-3 {
+	max-width: 300px;
+	align-items: center;
+	left: 50%;
 }
 
-.card-img-top{
-  max-width: 300px;
+.card-img-top {
+	max-width: 300px;
 }
-
-

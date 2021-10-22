@@ -6,12 +6,9 @@ export const Cart = () => {
 	const cartPage = useSelector((state) => state.cartPage);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		console.log(cartPage);
-	}, []); // eslint-disable-line react-hooks/exhaustive-deps
-
 	const remove = (id) => {
 		dispatch(removeFromCart(id));
+		console.log(cartPage);
 	};
 
 	return (
@@ -27,8 +24,8 @@ export const Cart = () => {
 						<p>{item.description}</p>
 						<h4>{item.price}</h4>
 					</div>
-					<button className="btn danger" onClick={remove(item.id)}>
-						Remove item
+					<button className="btn" onClick={() => remove(item.id)}>
+						Remove Item
 					</button>
 				</div>
 			))}
