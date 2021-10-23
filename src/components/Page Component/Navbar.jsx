@@ -4,10 +4,8 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 
 const navigation = [
-	{ name: "All Products", href: "#", current: true },
-	{ name: "Team", href: "#", current: false },
-	{ name: "Projects", href: "#", current: false },
-	{ name: "Calendar", href: "#", current: false },
+	{ name: "All Products", href: "#", current: false },
+	{ name: "New Arrivals", href: "#", current: false },
 ];
 
 function classNames(...classes) {
@@ -44,6 +42,7 @@ export default function Navbar() {
 										src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png"
 										alt="Workflow"
 									/>
+									{/* <h2 className="h2">Dux Store</h2> */}
 								</div>
 								<div className="hidden sm:block sm:ml-6">
 									<div className="flex space-x-4">
