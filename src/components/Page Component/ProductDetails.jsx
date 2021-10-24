@@ -5,6 +5,15 @@ import { addtoCart, selectProduct } from "../actions/actions";
 import { Link, useParams } from "react-router-dom";
 import { removeProduct } from "../actions/actions";
 // import { Button } from "bootstrap";
+// import { StarIcon } from '@heroicons/react/solid'
+// import { RadioGroup } from '@headlessui/react'
+
+const highlights = [
+	"All Orignal Products",
+	"3 Months warrenty",
+	"Highest quality manufacturing",
+	"Refund available",
+];
 
 export const ProductDetails = () => {
 	const productDetail = useSelector((state) => state.productDetail);
@@ -33,30 +42,72 @@ export const ProductDetails = () => {
 
 	// console.log(productDetail);
 
+	const successMessage = () => {
+		return (
+			<div class="alert success-alert">
+				<h3>Success Alert Message</h3>
+				<a class="close">&times;</a>
+			</div>
+		);
+	};
+
 	const addingCart = () => {
 		axios.get(`https://fakestoreapi.com/products/${productId}`).then((res) => {
 			const data = res.data;
 			dispatch(addtoCart(data));
 			console.log("added to cart");
+			successMessage();
 		});
 	};
 
 	return (
-		<div className="card mb-3">
-			<img src={productDetail.image} className="card-img-top" alt="..." />
-			<div className="card-body">
-				<h5 className="card-title">{productDetail.title}</h5>
-				<p className="card-text">{productDetail.description}</p>
-				<p className="card-text">
-					<h3 className="text-muted">{productDetail.price}</h3>
-				</p>
-			</div>
-			<button onClick={addingCart} className="btn btn-primary">
-				Add To Cart
-			</button>
-			<Link to="/cart">
-				<button className="btn btn-primary">View Cart</button>
-			</Link>
-		</div>
+		<>
+			<main className="container">
+				<div className="left-column">
+					<img
+						data-image="red"
+						className="active"
+						src={productDetail.image}
+						alt="img"
+					/>
+				</div>
+
+				<div className="right-column">
+					<div className="product-description">
+						<span>{productDetail.category}</span>
+						<h1>{productDetail.title}</h1>
+						<h2 className="tag">Description</h2>
+						<p>{productDetail.description}</p>
+					</div>
+					<h2 className="tag">Highlights</h2>
+					{highlights.map((highlight) => (
+						<li key={highlight} className="text-gray-400">
+							<span className="text-gray-600">{highlight}</span>
+						</li>
+					))}
+
+					<div className="product-configuration">
+						<div className="cable-config">
+							<h3 className="tag">Select Size -</h3>
+
+							<div className="cable-choose">
+								<button>Small</button>
+								<button>Medium</button>
+								<button>Large</button>
+							</div>
+
+							<h2 className="tag">Pricing and payment -</h2>
+						</div>
+					</div>
+
+					<div className="product-price">
+						<h2 className="price">₹{productDetail.price}</h2>
+						<button onClick={addingCart} className="cart-btn">
+							Add to cart
+						</button>
+					</div>
+				</div>
+			</main>
+		</>
 	);
 };

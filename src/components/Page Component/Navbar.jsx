@@ -1,10 +1,10 @@
 import React from "react";
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+// import { Fragment } from "react";
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, ShoppingCartIcon, XIcon } from "@heroicons/react/outline";
 
 const navigation = [
-	{ name: "All Products", href: "#", current: false },
+	{ name: "All Products", href: "/", current: false },
 	{ name: "New Arrivals", href: "#", current: false },
 ];
 
@@ -42,7 +42,7 @@ export default function Navbar() {
 										src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png"
 										alt="Workflow"
 									/>
-									{/* <h2 className="h2">Dux Store</h2> */}
+									<h2 className="h2">Dux Store</h2>
 								</div>
 								<div className="hidden sm:block sm:ml-6">
 									<div className="flex space-x-4">
@@ -70,17 +70,17 @@ export default function Navbar() {
 									className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
 								>
 									<span className="sr-only">View notifications</span>
-									<BellIcon className="h-6 w-6" aria-hidden="true" />
+									<ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
 								</button>
 
 								{/* Profile dropdown */}
-								<Menu as="div" className="ml-3 relative">
+								{/* <Menu as="div" className="ml-3 relative">
 									<div>
 										<Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
 											<span className="sr-only">Open user menu</span>
 											<img
 												className="h-8 w-8 rounded-full"
-												src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+												src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png"
 												alt=""
 											/>
 										</Menu.Button>
@@ -136,7 +136,7 @@ export default function Navbar() {
 											</Menu.Item>
 										</Menu.Items>
 									</Transition>
-								</Menu>
+								</Menu> */}
 							</div>
 						</div>
 					</div>
