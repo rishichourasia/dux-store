@@ -327,47 +327,29 @@ a {
 }
 
 /* success message */
-@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-h3 {
-	font-family: Quicksand;
-}
-.alert {
-	width: 20%;
-	margin: 20px auto;
-	padding: 30px;
-	position: relative;
+.view {
+	display: flex;
+	align-content: center;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: lightgreen;
+	margin-top: 15px;
+	padding: 5px 10px;
 	border-radius: 5px;
-	box-shadow: 0 0 15px 5px #ccc;
+	box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+		rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
-.close {
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	opacity: 0.5;
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 50%;
-	right: 15px;
-	top: 25px;
-	text-align: center;
-	font-size: 1.6em;
-	cursor: pointer;
+
+.view h2 {
+	padding: 4px;
+	margin-left: 12px;
 }
-/* @mixin alert($name, $bgColor) {
-	$accentColor: darken($bgColor, 50);
-	.#{$name} {
-		background-color: #{$bgColor};
-		border-left: 5px solid $accentColor;
-		.close {
-			border-color: $accentColor;
-			color: $accentColor;
-		}
-	}
-} */
-@include alert(simple-alert, #ebebeb);
-@include alert(success-alert, #a8f0c6);
+.h-6 {
+	height: 2rem;
+}
+.w-6 {
+	width: 2.5rem;
+}
+.none {
+	display: none;
+}

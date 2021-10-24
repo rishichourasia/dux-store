@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { addtoCart, selectProduct } from "../actions/actions";
 import { Link, useParams } from "react-router-dom";
 import { removeProduct } from "../actions/actions";
-// import { Button } from "bootstrap";
-// import { StarIcon } from '@heroicons/react/solid'
-// import { RadioGroup } from '@headlessui/react'
+import { CheckCircleIcon } from "@heroicons/react/outline";
 
 const highlights = [
 	"All Orignal Products",
@@ -19,6 +17,7 @@ export const ProductDetails = () => {
 	const productDetail = useSelector((state) => state.productDetail);
 	// const addToCart = useSelector((state) => state.addToCart);
 	const dispatch = useDispatch();
+	const [flag, setflag] = useState(false);
 	const { productId } = useParams();
 
 	const apiProduct = () => {
@@ -42,21 +41,12 @@ export const ProductDetails = () => {
 
 	// console.log(productDetail);
 
-	const successMessage = () => {
-		return (
-			<div class="alert success-alert">
-				<h3>Success Alert Message</h3>
-				<a class="close">&times;</a>
-			</div>
-		);
-	};
-
 	const addingCart = () => {
 		axios.get(`https://fakestoreapi.com/products/${productId}`).then((res) => {
 			const data = res.data;
 			dispatch(addtoCart(data));
-			console.log("added to cart");
-			successMessage();
+			setflag(true);
+			// footer.style.display = "none"
 		});
 	};
 
@@ -106,6 +96,10 @@ export const ProductDetails = () => {
 							Add to cart
 						</button>
 					</div>
+					<footer className={flag ? "view" : "none"}>
+						<CheckCircleIcon className="h-6 w-6 lol" aria-hidden="true" />
+						<h2>Successfully added to Cart! Click on cart icon to view.</h2>
+					</footer>
 				</div>
 			</main>
 		</>
