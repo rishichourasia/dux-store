@@ -22,3 +22,10 @@ export const CartPage = (state = [], action) => {
 	}
 	return state;
 };
+
+export const PriceSum = (state = 100, action) => {
+	if (action.type === "ADD_PRICE") {
+		return parseInt(Number(state) + Number(action.payload));
+	}
+	return Number(state);
+};

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { addtoCart, selectProduct } from "../actions/actions";
+import { addtoCart, priceArray, selectProduct } from "../actions/actions";
 import { useParams } from "react-router-dom";
 import { removeProduct } from "../actions/actions";
 import { CheckCircleIcon } from "@heroicons/react/outline";
@@ -45,6 +45,7 @@ export const ProductDetails = () => {
 			dispatch(addtoCart(data));
 			setflag(true);
 			console.log(cartPage);
+			dispatch(priceArray(data.price));
 		});
 	};
 

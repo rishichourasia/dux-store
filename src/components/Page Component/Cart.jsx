@@ -1,30 +1,31 @@
-import {
-	DeviceTabletIcon,
-	FolderRemoveIcon,
-	TrashIcon,
-	UserRemoveIcon,
-} from "@heroicons/react/outline";
-import React, { useEffect } from "react";
+import { TrashIcon } from "@heroicons/react/outline";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../actions/actions";
+import Success from "./Success";
 
 export const Cart = () => {
 	const cartPage = useSelector((state) => state.cartPage);
 	const dispatch = useDispatch();
+	const priceSum = useSelector((state) => state.priceSum);
+	const [success, setSuccess] = useState(false);
+
+	const isCartPage = cartPage.length < 0;
 
 	const remove = (id) => {
 		dispatch(removeFromCart(id));
-		console.log(cartPage);
 	};
-	useEffect(() => {
-		console.log(cartPage);
-	}, [cartPage]);
+
+	const checkoutMessage = () => {
+		setSuccess(true);
+	};
 
 	return (
 		<>
 			<h2 className="title">Shopping Cart</h2>
 			<div className="container mx-auto full-width">
 				<div className="left-cart">
+					<h1>Shopping Cart -</h1>
 					{cartPage.map((item, index) => (
 						<div
 							key={index}
@@ -51,7 +52,10 @@ export const Cart = () => {
 										</p>
 									</div>
 								</div>
-								<TrashIcon className="trashicon"></TrashIcon>
+								<TrashIcon
+									onClick={() => remove(item.id)}
+									className="trashicon"
+								></TrashIcon>
 							</div>
 						</div>
 					))}
@@ -61,17 +65,32 @@ export const Cart = () => {
 						<div className="md:flex">
 							<div className="p-8">
 								<div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-									Case study
+									Billing Info
 								</div>
-								<p className="block mt-1 text-lg leading-tight font-medium text-black">
-									Finding customers for your new business
-								</p>
-								<p className="mt-2 text-gray-500">
-									Getting a new business off the ground is a lot of hard work.
-									Here are five ideas you can use to find your first customers.
-								</p>
+								<div className="bill-head">
+									<div className="margin">
+										<p className="block mt-1 text-lg leading-tight font-medium text-gray">
+											Shipping Charges
+										</p>
+										<p className="block mt-1 text-lg leading-tight font-medium text-black">
+											Grand Total
+										</p>
+									</div>
+									<div>
+										<p className="block mt-1 text-lg leading-tight font-medium text-gray">
+											₹100
+										</p>
+										<p className="block mt-1 text-lg leading-tight font-medium text-black">
+											₹{priceSum}
+										</p>
+									</div>
+								</div>
+								<p className="mt-2 text-gray-500">Inclusive of all Taxes</p>
 							</div>
 						</div>
+						<button onClick={checkoutMessage} className="cart-btn full">
+							Checkout
+						</button>
 					</div>
 				</div>
 			</div>

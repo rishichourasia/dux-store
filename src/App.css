@@ -268,7 +268,7 @@ a {
 
 .cart-btn {
 	display: inline-block;
-	background-color: #293341;
+	background-color: #6366f1;
 	border-radius: 6px;
 	font-size: 19px;
 	font-weight: 500;
@@ -279,7 +279,7 @@ a {
 }
 
 .cart-btn:hover {
-	background-color: #4c5a6b;
+	background-color: #3e40be;
 }
 
 /* Responsive */
@@ -368,10 +368,22 @@ a {
 	align-items: flex-start;
 	flex-direction: row;
 }
+.left-cart h1 {
+	font-size: 1.7rem;
+	font-weight: bold;
+	color: #1f2937;
+	margin-left: 20px;
+}
 
 .trashicon {
 	width: 30px;
+	transition: all 0.3s;
 }
+.trashicon:hover {
+	cursor: pointer;
+	width: 32px;
+}
+
 .leftside {
 	display: flex;
 }
@@ -393,4 +405,20 @@ a {
 .bold {
 	font-weight: bold;
 	font-size: 1.2rem;
+}
+
+.bill-head {
+	display: flex;
+	margin-top: 15px;
+	justify-content: space-between;
+}
+
+.margin {
+	margin-right: 145px;
+}
+.full {
+	width: 100%;
+}
+.right-cart {
+	width: 25%;
 }

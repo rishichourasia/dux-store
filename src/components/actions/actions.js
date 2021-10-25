@@ -30,6 +30,12 @@ const removeFromCart = (id) => {
 		payload: id,
 	};
 };
+const priceArray = (price) => {
+	return {
+		type: "ADD_PRICE",
+		payload: price,
+	};
+};
 
 export {
 	fetchProducts,
@@ -37,4 +43,5 @@ export {
 	removeProduct,
 	addtoCart,
 	removeFromCart,
+	priceArray,
 };
