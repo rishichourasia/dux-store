@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { addtoCart, selectProduct } from "../actions/actions";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { removeProduct } from "../actions/actions";
 import { CheckCircleIcon } from "@heroicons/react/outline";
 
@@ -15,7 +15,7 @@ const highlights = [
 
 export const ProductDetails = () => {
 	const productDetail = useSelector((state) => state.productDetail);
-	// const addToCart = useSelector((state) => state.addToCart);
+	const cartPage = useSelector((state) => state.cartPage);
 	const dispatch = useDispatch();
 	const [flag, setflag] = useState(false);
 	const { productId } = useParams();
@@ -39,14 +39,12 @@ export const ProductDetails = () => {
 		};
 	}, [productId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-	// console.log(productDetail);
-
 	const addingCart = () => {
 		axios.get(`https://fakestoreapi.com/products/${productId}`).then((res) => {
 			const data = res.data;
 			dispatch(addtoCart(data));
 			setflag(true);
-			// footer.style.display = "none"
+			console.log(cartPage);
 		});
 	};
 

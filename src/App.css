@@ -353,3 +353,44 @@ a {
 .none {
 	display: none;
 }
+
+.mains {
+	margin-top: 50px;
+}
+
+.full-width {
+	margin-top: 100px !important;
+	max-width: 100%;
+	margin: 0 auto;
+	/* padding: 15px; */
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+	flex-direction: row;
+}
+
+.trashicon {
+	width: 30px;
+}
+.leftside {
+	display: flex;
+}
+.mf {
+	justify-content: space-between;
+	padding: 15px;
+}
+.leftside img {
+	max-width: 130px !important;
+}
+.chota {
+	max-width: 350px;
+}
+.mar {
+	margin: 20px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+		rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.bold {
+	font-weight: bold;
+	font-size: 1.2rem;
+}
