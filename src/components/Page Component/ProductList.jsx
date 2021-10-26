@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { fetchProducts } from "../actions/actions";
@@ -8,6 +8,7 @@ import { Loading } from "./Loading";
 export const ProductList = () => {
 	const fetchProduct = useSelector((state) => state.fetchProduct);
 	const dispatch = useDispatch();
+	const [isProduct, setProduct] = useState(true);
 
 	useEffect(() => {
 		function apiProduct() {
@@ -22,9 +23,8 @@ export const ProductList = () => {
 				});
 		}
 		apiProduct();
+		setProduct(false);
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-	const isProduct = fetchProduct.length < 0;
 
 	return (
 		<>

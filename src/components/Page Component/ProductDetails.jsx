@@ -20,6 +20,7 @@ export const ProductDetails = () => {
 	const dispatch = useDispatch();
 	const [flag, setflag] = useState(false);
 	const { productId } = useParams();
+	const [isProduct, setProduct] = useState(true);
 
 	const apiProduct = () => {
 		axios
@@ -31,6 +32,7 @@ export const ProductDetails = () => {
 			.catch((err) => {
 				console.error(err);
 			});
+		setProduct(false);
 	};
 
 	useEffect(() => {
@@ -40,10 +42,6 @@ export const ProductDetails = () => {
 			dispatch(removeProduct());
 		};
 	}, [productId]); // eslint-disable-line react-hooks/exhaustive-deps
-
-	var isProduct = productDetail.length === 1;
-
-	console.log(productDetail.length);
 
 	const addingCart = () => {
 		axios.get(`https://fakestoreapi.com/products/${productId}`).then((res) => {
