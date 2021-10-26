@@ -11,10 +11,8 @@ export default function Success() {
 								version="1.1"
 								id="checkmark"
 								xmlns="http://www.w3.org/2000/svg"
-								xmlns:xlink="http://www.w3.org/1999/xlink"
 								x="0px"
 								y="0px"
-								xml:space="preserve"
 							>
 								<path
 									d="M131.583,92.152l-0.026-0.041c-0.713-1.118-2.197-1.447-3.316-0.734l-31.782,20.257l-4.74-12.65
@@ -35,13 +33,13 @@ export default function Success() {
 									r="32.53"
 								/>
 							</svg>
-							<h3 id="status">Success</h3>
+							<h2 id="status">Order Placed !</h2>
 						</div>
 						<div id="lower-side">
 							<p id="message">
-								Congratulations, your account has been successfully created.
+								Your Items will be delieverd to your door steps.
 							</p>
-							<a href="/" id="contBtn">
+							<a href="/" className="cart-btn bye">
 								Continue Shopping
 							</a>
 						</div>
