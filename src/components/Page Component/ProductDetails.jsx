@@ -35,12 +35,15 @@ export const ProductDetails = () => {
 
 	useEffect(() => {
 		if (productId && productId !== "") apiProduct();
+
 		return () => {
 			dispatch(removeProduct());
 		};
 	}, [productId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-	const isProduct = productDetail.length !== 1;
+	var isProduct = productDetail.length === 1;
+
+	console.log(productDetail.length);
 
 	const addingCart = () => {
 		axios.get(`https://fakestoreapi.com/products/${productId}`).then((res) => {
