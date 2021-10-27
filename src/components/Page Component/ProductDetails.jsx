@@ -34,7 +34,9 @@ export const ProductDetails = () => {
 			.catch((err) => {
 				console.error(err);
 			});
-		setProduct(false);
+		setTimeout(() => {
+			setProduct(false);
+		}, 700);
 	};
 
 	useEffect(() => {

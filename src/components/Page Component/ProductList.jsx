@@ -23,7 +23,9 @@ export const ProductList = () => {
 				});
 		}
 		apiProduct();
-		setProduct(false);
+		setTimeout(() => {
+			setProduct(false);
+		}, 500);
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (

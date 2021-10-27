@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../actions/actions";
 import Empty from "./Empty";
+import { Loading } from "./Loading";
 import Success from "./Success";
 
 export const Cart = () => {
@@ -10,6 +11,7 @@ export const Cart = () => {
 	const dispatch = useDispatch();
 	const priceSum = useSelector((state) => state.priceSum);
 	const [success, setSuccess] = useState(false);
+	const [successMsg, setSuccessMsg] = useState(false);
 
 	const isCartPage = cartPage.length > 0;
 
@@ -18,13 +20,20 @@ export const Cart = () => {
 	};
 
 	const checkoutMessage = () => {
-		setSuccess(true);
+		setSuccessMsg(true);
+
+		setTimeout(() => {
+			setSuccessMsg(false);
+			setSuccess(true);
+		}, 1500);
 	};
 
 	return (
 		<div>
 			{isCartPage ? (
-				success ? (
+				successMsg ? (
+					<Loading />
+				) : success ? (
 					<Success />
 				) : (
 					<>
