@@ -40,7 +40,7 @@ export const Cart = () => {
 						<h2 className="title">Shopping Cart</h2>
 						<div className="container mx-auto full-width">
 							<div className="left-cart">
-								<h1>Shopping Cart -</h1>
+								<h1> Your Shopping Cart -</h1>
 								{cartPage.map((item, index) => (
 									<div
 										key={index}

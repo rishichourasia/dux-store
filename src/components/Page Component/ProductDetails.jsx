@@ -36,7 +36,7 @@ export const ProductDetails = () => {
 			});
 		setTimeout(() => {
 			setProduct(false);
-		}, 700);
+		}, 1000);
 	};
 
 	useEffect(() => {
