@@ -14,6 +14,8 @@ const highlights = [
 	"Refund available",
 ];
 
+/////Adding setInterval
+
 export const ProductDetails = () => {
 	const productDetail = useSelector((state) => state.productDetail);
 	const cartPage = useSelector((state) => state.cartPage);
