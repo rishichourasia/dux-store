@@ -490,6 +490,10 @@ nav {
 	.left-column img {
 		padding-top: 53px;
 	}
+	.loading {
+		padding-top: 230px !important;
+		padding-left: 150px !important;
+	}
 }
 
 /* loading  */
@@ -499,6 +503,7 @@ nav {
 	width: 80px;
 	height: 80px;
 }
+
 .lds-dual-ring:after {
 	content: " ";
 	display: block;
