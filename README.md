@@ -1,5 +1,7 @@
 # Dux-Store
 An Ecommerce application made using React and Redux. User can view product list, product detail, add them to cart,delete them from cart and place an order.
+<br/>
+
 View here - [live Link](https://dux-store.netlify.app/)
 
 ## Screenshots
